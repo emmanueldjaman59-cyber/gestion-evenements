@@ -14,4 +14,16 @@ urlpatterns = [
 
     path('<int:pk>/', views.details_evenement, name='details_evenement'),
 
+    path(
+    '<int:pk>/inscription/',
+    views.inscrire_participant,
+    name='inscrire_participant'
+),
+
+path(
+    '<int:pk>/participants/',
+    views.liste_participants,
+    name='liste_participants'
+),
+
 ]

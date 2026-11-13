@@ -84,7 +84,14 @@
                    class="supprimer">Supprimer</a>
                 
                 <a href="{% url 'details_evenement' evenement.pk %}">
-                           Voir les détails </a>
+                        <class="voir les détails">Voir les détails</a> 
+                           
+
+                <a href="{% url 'inscrire_participant' evenement.pk %}">
+                    <class="s'inscrire à cet évènement">S'inscrire à cet événement</a>
+
+                <a href="{% url 'liste_participants' evenement.pk %}">
+                    <class="voir les participants">Voir les participants</a>
             </div>
 
         {% empty %}

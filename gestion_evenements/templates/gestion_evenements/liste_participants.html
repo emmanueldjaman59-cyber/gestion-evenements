@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des participants</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #198754;
+        }
+
+        .participant {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .retour {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0d6efd;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Participants inscrits</h1>
+
+        <h2>{{ evenement.titre }}</h2>
+
+        <p>
+            Nombre de participants :
+            <strong>{{ participants|length }}</strong>
+        </p>
+
+        {% for participant in participants %}
+
+            <div class="participant">
+                <p><strong>Nom :</strong> {{ participant.participant }}</p>
+                <p><strong>Email :</strong> {{ participant.email }}</p>
+                <p>
+                    <strong>Date d'inscription :</strong>
+                    {{ participant.date_inscription }}
+                </p>
+            </div>
+
+        {% empty %}
+
+            <p>Aucun participant n'est encore inscrit à cet événement.</p>
+
+        {% endfor %}
+
+        <a href="{% url 'liste_evenements' %}" class="retour">
+            Retour aux événements
+        </a>
+
+    </div>
+
+</body>
+</html>

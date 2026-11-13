@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inscription à un événement</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #198754;
+            margin-bottom: 15px;
+        }
+
+        .evenement {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #198754;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #146c43;
+        }
+
+        .retour {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        .erreur {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Formulaire d'inscription</h1>
+
+        <p class="evenement">
+            Événement : <strong>{{ evenement.titre }}</strong>
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="erreur">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            <label for="{{ form.participant.id_for_label }}">
+                Nom complet
+            </label>
+
+            {{ form.participant }}
+
+            <label for="{{ form.email.id_for_label }}">
+                Adresse e-mail
+            </label>
+
+            {{ form.email }}
+
+            <button type="submit">
+                Valider mon inscription
+            </button>
+
+        </form>
+
+        <a href="{% url 'liste_evenements' %}" class="retour">
+            Retour aux événements
+        </a>
+
+    </div>
+
+</body>
+</html>

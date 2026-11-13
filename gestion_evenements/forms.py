@@ -50,3 +50,26 @@ def clean_date_evenement(self):
         )
 
     return date
+
+from .models import Inscription
+
+
+class InscriptionForm(forms.ModelForm):
+
+    class Meta:
+        model = Inscription
+
+        fields = [
+            'participant',
+            'email'
+        ]
+
+        widgets = {
+            'participant': forms.TextInput(attrs={
+                'placeholder': 'Entrez votre nom complet'
+            }),
+
+            'email': forms.EmailInput(attrs={
+                'placeholder': 'Entrez votre adresse e-mail'
+            })
+        }
