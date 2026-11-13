@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Modèle représentant un événement
 class Evenement(models.Model):
     titre = models.CharField(max_length=200)
     description = models.TextField()
@@ -12,6 +13,7 @@ class Evenement(models.Model):
         return self.titre
 
 
+# Modèle représentant une inscription
 class Inscription(models.Model):
     participant = models.CharField(max_length=150)
     email = models.EmailField()

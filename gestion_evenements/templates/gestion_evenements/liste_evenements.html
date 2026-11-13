@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des événements</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .ajouter {
+            display: inline-block;
+            background: #198754;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .evenement {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .modifier {
+            color: #0d6efd;
+        }
+
+        .supprimer {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Gestion des événements</h1>
+
+        <a href="{% url 'ajouter_evenement' %}" class="ajouter">
+            + Ajouter un événement
+        </a>
+
+        {% for evenement in evenements %}
+
+            <div class="evenement">
+
+                <h2>{{ evenement.titre }}</h2>
+
+                <p>{{ evenement.description }}</p>
+
+                <p><strong>Lieu :</strong> {{ evenement.lieu }}</p>
+
+                <p><strong>Date :</strong> {{ evenement.date_evenement }}</p>
+
+                <p><strong>Heure :</strong> {{ evenement.heure }}</p>
+
+                <a href="{% url 'modifier_evenement' evenement.pk %}"
+                   class="modifier">Modifier</a>
+
+                |
+
+                <a href="{% url 'supprimer_evenement' evenement.pk %}"
+                   class="supprimer">Supprimer</a>
+
+            </div>
+
+        {% empty %}
+
+            <p>Aucun événement n'est disponible pour le moment.</p>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
