@@ -82,7 +82,9 @@
 
                 <a href="{% url 'supprimer_evenement' evenement.pk %}"
                    class="supprimer">Supprimer</a>
-
+                
+                <a href="{% url 'details_evenement' evenement.pk %}">
+                           Voir les détails </a>
             </div>
 
         {% empty %}

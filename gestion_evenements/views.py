@@ -74,3 +74,13 @@ def supprimer_evenement(request, pk):
         'gestion_evenements/confirmer_suppression.html',
         {'evenement': evenement}
     )
+# Afficher les détails d'un événement
+def details_evenement(request, pk):
+
+    evenement = get_object_or_404(Evenement, pk=pk)
+
+    return render(
+        request,
+        'gestion_evenements/details_evenement.html',
+        {'evenement': evenement}
+    )

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Détails de l'événement</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #198754;
+            text-align: center;
+        }
+
+        p {
+            margin: 20px 0;
+            font-size: 17px;
+        }
+
+        a {
+            display: inline-block;
+            background: #198754;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>{{ evenement.titre }}</h1>
+
+        <p>
+            <strong>Description :</strong>
+            {{ evenement.description }}
+        </p>
+
+        <p>
+            <strong>Lieu :</strong>
+            {{ evenement.lieu }}
+        </p>
+
+        <p>
+            <strong>Date :</strong>
+            {{ evenement.date_evenement }}
+        </p>
+
+        <p>
+            <strong>Heure :</strong>
+            {{ evenement.heure }}
+        </p>
+
+        <a href="{% url 'liste_evenements' %}">
+            Retour à la liste
+        </a>
+
+    </div>
+
+</body>
+</html>

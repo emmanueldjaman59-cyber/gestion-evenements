@@ -8,16 +8,10 @@ urlpatterns = [
 
     path('ajouter/', views.ajouter_evenement, name='ajouter_evenement'),
 
-    path(
-        '<int:pk>/modifier/',
-        views.modifier_evenement,
-        name='modifier_evenement'
-    ),
+    path('<int:pk>/modifier/', views.modifier_evenement, name='modifier_evenement'),
 
-    path(
-        '<int:pk>/supprimer/',
-        views.supprimer_evenement,
-        name='supprimer_evenement'
-    ),
+    path('<int:pk>/supprimer/', views.supprimer_evenement, name='supprimer_evenement'),
+
+    path('<int:pk>/', views.details_evenement, name='details_evenement'),
 
 ]
